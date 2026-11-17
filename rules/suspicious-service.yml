@@ -1,0 +1,13 @@
+id: suspicious-service
+title: Service installed from a suspicious path
+severity: high
+tactic: Persistence
+techniques: [T1543.003]
+type: match
+selection:
+  action: service_installed
+  image_path|contains: ['\Temp\', '\AppData\', '\Users\Public\', 'cmd.exe /c', 'powershell']
+description: >
+  A Windows service was registered with a binary in a user-writable location or a shell command line.
+response:
+  - Stop and delete the service, preserve the binary for analysis, and look for the dropper.

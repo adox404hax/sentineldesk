@@ -1,0 +1,18 @@
+id: encoded-powershell
+title: PowerShell with encoded command
+severity: high
+tactic: Execution
+techniques: [T1059.001, T1027]
+type: match
+selection:
+  action: process_create
+  process|endswith: [powershell.exe, pwsh.exe]
+  command_line|re: '\s-(?:e|ec|enc|encodedcommand)\s+[A-Za-z0-9+/=]{16,}'
+group_by: host
+window: 300
+description: >
+  PowerShell launched with a Base64 encoded command, a common way to hide payloads.
+response:
+  - Decode the Base64 (UTF-16LE) payload and extract URLs, IPs and file paths as IOCs.
+  - Review the parent process and everything this host did in the following 30 minutes.
+  - Isolate the host if the payload downloads or executes anything.

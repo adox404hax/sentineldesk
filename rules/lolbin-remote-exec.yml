@@ -1,0 +1,16 @@
+id: lolbin-remote-exec
+title: Signed binary fetching or running remote content
+severity: high
+tactic: Defense Evasion
+techniques: [T1218.005, T1218.010, T1218.011]
+type: match
+selection:
+  action: process_create
+  process|endswith: [mshta.exe, regsvr32.exe, rundll32.exe]
+  command_line|contains: ['http://', 'https://', 'javascript:', 'vbscript:', 'scrobj.dll']
+description: >
+  mshta, regsvr32 or rundll32 run with a remote URL or script engine, used to proxy execution
+  through a trusted Microsoft binary.
+response:
+  - Collect the referenced URL and script and add them to blocklists.
+  - Check the parent process to find what launched it.

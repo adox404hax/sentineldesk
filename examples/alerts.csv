@@ -1,0 +1,17 @@
+first_seen,last_seen,severity,rule_id,title,tactic,techniques,events,src_ip,user,host
+2026-11-17T09:14:03+00:00,2026-11-17T09:18:20+00:00,critical,bruteforce-success,Successful login after repeated failures,Initial Access,T1078;T1110,61,203.0.113.50,deploy,web01
+2026-11-17T10:02:22+00:00,2026-11-17T10:10:44+00:00,critical,bruteforce-success,Successful login after repeated failures,Initial Access,T1078;T1110,22,198.51.100.77,svc_backup,RDS01
+2026-11-17T10:31:00+00:00,2026-11-17T10:31:00+00:00,critical,log-cleared,Windows event log cleared,Defense Evasion,T1070.001,1,,svc_backup,RDS01
+2026-11-17T08:43:00+00:00,2026-11-17T08:43:09+00:00,high,web-sqli,SQL injection attempt,Initial Access,T1190,2,203.0.113.50,,web01
+2026-11-17T08:43:21+00:00,2026-11-17T08:43:21+00:00,high,web-path-traversal,Path traversal attempt,Initial Access,T1190,1,203.0.113.50,,web01
+2026-11-17T09:14:03+00:00,2026-11-17T09:17:00+00:00,high,login-bruteforce,Brute-force login attempts,Credential Access,T1110.001,60,203.0.113.50,,web01
+2026-11-17T10:02:22+00:00,2026-11-17T10:10:22+00:00,high,password-spray,"Password spraying (many accounts, one source)",Credential Access,T1110.003,21,198.51.100.77,,RDS01
+2026-11-17T10:21:05+00:00,2026-11-17T10:21:05+00:00,high,encoded-powershell,PowerShell with encoded command,Execution,T1059.001;T1027,1,,svc_backup,RDS01
+2026-11-17T10:21:40+00:00,2026-11-17T10:21:40+00:00,high,certutil-download,Certutil used to download a file,Command and Control,T1105,1,,svc_backup,RDS01
+2026-11-17T10:22:10+00:00,2026-11-17T10:22:10+00:00,high,lolbin-remote-exec,Signed binary fetching or running remote content,Defense Evasion,T1218.005;T1218.010;T1218.011,1,,svc_backup,RDS01
+2026-11-17T10:23:15+00:00,2026-11-17T10:23:15+00:00,high,admin-group-add,Account added to a privileged group,Privilege Escalation,T1098,1,,svc_backup,RDS01
+2026-11-17T10:24:00+00:00,2026-11-17T10:24:00+00:00,high,suspicious-service,Service installed from a suspicious path,Persistence,T1543.003,1,,svc_backup,RDS01
+2026-11-17T08:41:00+00:00,2026-11-17T08:41:27+00:00,medium,web-404-flood,Directory and file enumeration (404 flood),Reconnaissance,T1595.003,45,203.0.113.50,,web01
+2026-11-17T08:41:00+00:00,2026-11-17T08:41:27+00:00,medium,web-scanner-ua,Known scanner user agent,Reconnaissance,T1595.002,45,203.0.113.50,,web01
+2026-11-17T10:23:00+00:00,2026-11-17T10:23:00+00:00,medium,new-local-user,New local user account created,Persistence,T1136.001,1,,svc_backup,RDS01
+2026-11-17T13:20:00+00:00,2026-11-17T13:20:04+00:00,medium,web-scanner-ua,Known scanner user agent,Reconnaissance,T1595.002,3,192.0.2.200,,web01

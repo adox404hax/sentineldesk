@@ -1,0 +1,13 @@
+id: log-cleared
+title: Windows event log cleared
+severity: critical
+tactic: Defense Evasion
+techniques: [T1070.001]
+type: match
+selection:
+  action: log_cleared
+description: >
+  The Windows Security event log was cleared (Event ID 1102). Attackers do this to cover tracks.
+response:
+  - Treat as hands-on-keyboard activity and pull forwarded SIEM copies of the logs from before the clear.
+  - Isolate the host and escalate to incident response.

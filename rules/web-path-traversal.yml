@@ -1,0 +1,15 @@
+id: web-path-traversal
+title: Path traversal attempt
+severity: high
+tactic: Initial Access
+techniques: [T1190]
+type: match
+selection:
+  action: http_request
+  url_decoded|contains: ['../', '..\', '/etc/passwd', 'c:\windows']
+group_by: src_ip
+window: 600
+description: >
+  The request URL tries to escape the web root to read arbitrary files.
+response:
+  - Confirm no sensitive file was returned (status 200 with a large body) and patch the endpoint.

@@ -1,0 +1,15 @@
+id: web-scanner-ua
+title: Known scanner user agent
+severity: medium
+tactic: Reconnaissance
+techniques: [T1595.002]
+type: match
+selection:
+  action: http_request
+  user_agent|contains: [nikto, sqlmap, nmap, gobuster, dirbuster, wpscan, masscan, nuclei, acunetix]
+group_by: src_ip
+window: 600
+description: >
+  Requests carrying the user agent of a well-known vulnerability scanner.
+response:
+  - Block the source IP; check whether any request returned 200 for a sensitive path.

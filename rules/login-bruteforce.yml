@@ -1,0 +1,16 @@
+id: login-bruteforce
+title: Brute-force login attempts
+severity: high
+tactic: Credential Access
+techniques: [T1110.001]
+type: threshold
+selection:
+  action: login_failed
+group_by: src_ip
+count: 10
+window: 120
+description: >
+  Ten or more failed logins from one source IP within two minutes, against SSH or Windows.
+response:
+  - Block the source IP at the firewall or WAF and check whether it appears in threat-intel feeds.
+  - Confirm MFA and account lockout are enforced on the targeted service.

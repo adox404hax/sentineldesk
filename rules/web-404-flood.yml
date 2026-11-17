@@ -1,0 +1,16 @@
+id: web-404-flood
+title: Directory and file enumeration (404 flood)
+severity: medium
+tactic: Reconnaissance
+techniques: [T1595.003]
+type: threshold
+selection:
+  action: http_request
+  status: '404'
+group_by: src_ip
+count: 25
+window: 60
+description: >
+  A single IP generated 25 or more 404 responses in a minute, typical of content discovery tools.
+response:
+  - Rate-limit or block the source IP and review which paths (if any) returned 200.

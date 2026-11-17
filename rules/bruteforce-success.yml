@@ -1,0 +1,22 @@
+id: bruteforce-success
+title: Successful login after repeated failures
+severity: critical
+tactic: Initial Access
+techniques: [T1078, T1110]
+type: sequence
+group_by: src_ip
+window: 900
+first:
+  count: 5
+  selection:
+    action: login_failed
+then:
+  selection:
+    action: login_success
+description: >
+  The same source IP failed to log in at least five times and then succeeded.
+  Treat the account as compromised until proven otherwise.
+response:
+  - Disable the account and kill its active sessions immediately.
+  - Pull all activity by this account and source IP after the successful login.
+  - Reset credentials and rotate any secrets the account could reach.

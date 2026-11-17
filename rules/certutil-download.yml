@@ -1,0 +1,15 @@
+id: certutil-download
+title: Certutil used to download a file
+severity: high
+tactic: Command and Control
+techniques: [T1105]
+type: match
+selection:
+  action: process_create
+  process|endswith: certutil.exe
+  command_line|contains: [urlcache, verifyctl]
+description: >
+  certutil.exe fetching a remote file is a classic living-off-the-land download technique.
+response:
+  - Retrieve the downloaded file and detonate or hash it (VirusTotal, sandbox).
+  - Block the remote host at the proxy or DNS layer and hunt for other hosts that contacted it.

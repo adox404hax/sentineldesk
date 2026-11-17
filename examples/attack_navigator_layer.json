@@ -1,0 +1,106 @@
+{
+  "name": "SentinelDesk coverage",
+  "domain": "enterprise-attack",
+  "versions": {
+    "attack": "15",
+    "navigator": "5.1.0",
+    "layer": "4.5"
+  },
+  "description": "Blue = covered by a rule. Orange = fired in this analysis run.",
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#8ec1ff",
+      "#ff9248"
+    ],
+    "minValue": 0,
+    "maxValue": 2
+  },
+  "techniques": [
+    {
+      "techniqueID": "T1027",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1059.001",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1070.001",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1078",
+      "score": 2,
+      "comment": "2 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1098",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1105",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1110",
+      "score": 2,
+      "comment": "2 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1110.001",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1110.003",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1136.001",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1190",
+      "score": 2,
+      "comment": "2 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1218.005",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1218.010",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1218.011",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1543.003",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1595.002",
+      "score": 2,
+      "comment": "2 alert(s) in this run"
+    },
+    {
+      "techniqueID": "T1595.003",
+      "score": 2,
+      "comment": "1 alert(s) in this run"
+    }
+  ]
+}

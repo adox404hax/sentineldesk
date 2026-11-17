@@ -1,0 +1,16 @@
+id: web-sqli
+title: SQL injection attempt
+severity: high
+tactic: Initial Access
+techniques: [T1190]
+type: match
+selection:
+  action: http_request
+  url_decoded|contains: ['union select', "' or '1'='1", 'or 1=1', 'sleep(', 'information_schema']
+group_by: src_ip
+window: 600
+description: >
+  The request URL contains common SQL injection payloads.
+response:
+  - Check application and database logs for the same timeframe; look for 200 or 500 responses.
+  - Verify the endpoint uses parameterised queries and is behind a WAF rule.

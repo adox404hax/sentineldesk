@@ -1,0 +1,13 @@
+id: admin-group-add
+title: Account added to a privileged group
+severity: high
+tactic: Privilege Escalation
+techniques: [T1098]
+type: match
+selection:
+  action: group_member_added
+  group: [Administrators, Domain Admins, Enterprise Admins]
+description: >
+  A member was added to a high-privilege group.
+response:
+  - Confirm the change was authorised; remove the member and investigate the acting account if not.

